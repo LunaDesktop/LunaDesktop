@@ -1,89 +1,152 @@
-<!-- Szablon README PROFILU GitHub (repo <login>/<login>, plik README.md).
-     Podmień: @mijsys na swój login, adresy repo i linki kontaktowe. -->
+<!-- README profilu konta LunaDesktop: https://github.com/LunaDesktop
+     Wrzuć jako README.md do repozytorium LunaDesktop/LunaDesktop (branch main).
+     Obrazy linkują do repo `branding` i `monorepo` (gałąź main) — nie trzeba ich kopiować. -->
 
 <p align="center">
-  <a href="https://github.com/LunaDesktop/monorepo"><img alt="Luna" src="https://img.shields.io/badge/-Luna-1f2430?style=flat-square&labelColor=1f2430"></a>
-  <a href="https://github.com/LunaDesktop/selene"><img alt="Selene" src="https://img.shields.io/badge/-Selene-4a90d9?style=flat-square"></a>
-  <a href="https://github.com/mijsys/libLuna"><img alt="libLuna" src="https://img.shields.io/badge/-libLuna-dea584?style=flat-square"></a>
+  <img src="https://raw.githubusercontent.com/LunaDesktop/branding/main/branding/luna.svg" width="96" alt="Luna">
 </p>
 
-<h1 align="center">Patryk</h1>
+<h1 align="center">Luna</h1>
 
 <p align="center">
-  Buduję <b>Lunę</b> — mały, spójny pulpit linuksowy w czystym Rust.<br>
-  <em>I build Luna — a small, coherent Linux desktop in pure Rust.</em>
+  Mały, spójny pulpit linuksowy w czystym Rust.<br>
+  <em>A small, coherent Linux desktop written in pure Rust.</em>
 </p>
 
 <p align="center">
   <img alt="Rust" src="https://img.shields.io/badge/Rust-1.80%2B-dea584?logo=rust&logoColor=white">
   <img alt="Wayland" src="https://img.shields.io/badge/Wayland-compositor-4a90d9">
-  <img alt="Linux" src="https://img.shields.io/badge/platform-Linux-lightgrey">
-  <img alt="License" src="https://img.shields.io/badge/license-MPL--2.0-blue">
+  <img alt="Platform" src="https://img.shields.io/badge/platform-Linux-lightgrey">
+  <img alt="License" src="https://img.shields.io/badge/license-MPL--2.0%20%2F%20GPL--3.0-blue">
+  <img alt="Status" src="https://img.shields.io/badge/status-alpha-orange">
+</p>
+
+<p align="center">
+  <a href="https://luna.paganlinux.eu/en/docs/">Documentation</a> ·
+  <a href="https://luna.paganlinux.eu/">Website</a> ·
+  <a href="https://github.com/LunaDesktop/monorepo">Monorepo</a> ·
+  <a href="#polski">Polski</a>
 </p>
 
 ---
 
-## Co buduję / What I'm building
-
-Trzy warstwy jednego stosu — bez GTK, Qt, GObject i glib. Każda jest osobnym
-workspace'em Cargo, więc można ją wydać i rozwijać niezależnie.
-
-| Projekt | Co to jest | Stan |
-|---|---|---|
-| **[Luna](https://github.com/LunaDesktop/monorepo)** | Środowisko pulpitu: panel, launcher, przestrzenie robocze, powiadomienia, ekran blokady, menedżer logowania, ustawienia i aplikacje (Pliki, Edytor, Media, Zegar, Sklep, Terminal) | alpha |
-| **[Selene](https://github.com/LunaDesktop/selene)** | Kompozytor Wayland — bez Smithery: `wayland-server` i własna pętla zdarzeń. Backendy DRM/KMS i nested, import GPU `dmabuf`, XWayland z wbudowanym WM i mostem schowka, IME, menedżer schowka | alpha |
-| **[libLuna](https://github.com/mijsys/libLuna)** | Toolkit GUI w czystym Rust — 77 widgetów wzorowanych na GTK4/libadwaita, renderer CPU (tiny-skia), motywy jako tokeny | 0.0.8 |
-
-**Dlaczego od zera:** bo „mały, szybki i bezpieczny pamięciowo” da się osiągnąć tylko wtedy,
-gdy cały stos jest w jednym języku i pod naszą kontrolą — od geometrii, przez widgety, po
-kompozytor. Integracja ze światem zewnętrznym idzie standardowym Waylandem
-(`xdg-shell`, `wlr-layer-shell`), portalami XDG i XWaylandem.
-
-## Na czym teraz pracuję / Current focus
-
-- kompozytor: `xdg_toplevel` v2+ (`wm_capabilities`, `configure_bounds`, stan kafelkowania)
-- pełne HiDPI (`buffer_scale`/`buffer_transform`, skalowanie ułamkowe)
-- `ext_session_lock_v1` i screencopy dla narzędzi trzecich
-- schowek poza tekstem: obrazy, HTML, `text/uri-list`, `PRIMARY`
-- codzienna praca bez obejść: XWayland, gry, IME
-
-## Stos / Stack
-
-`Rust` · `Wayland` (`wayland-server`, `wayland-client`) · `DRM/KMS` · `EGL`/`dmabuf` ·
-`tiny-skia` · XKB · `wlr-*` protocols · `systemd`/`greetd` · Linux
-
-## Projekty wokół Luny
-
-- **Dokumentacja:** <https://luna.paganlinux.eu/docs/> (polski) · <https://luna.paganlinux.eu/en/docs/> (English)
-- **Wsparcie protokołów Selene:** [docs/compositor.md](https://github.com/LunaDesktop/selene/blob/main/docs/compositor.md)
-- **Dystrybucja / pakiety:** PaganOS — receptury w `packaging/paganos`
-- **Własne repozytorium git:** <https://git.paganlinux.eu/luna.git>
-
-## Zasady, w których pracuję
-
-- **Rust 2021, MSRV 1.80** — bez ciężkich zależności bez powodu.
-- **Komentarz mówi „dlaczego”, nie „co”**; testy jednostkowe w `mod tests`.
-- **Zero obietnic bez pokrycia** — dokumentacja protokołów jest żywą listą tego, co działa,
-  i tego, czego jeszcze nie ma.
-- **Najpierw reprodukcja, potem poprawka** — test w zagnieżdżonej sesji zamiast zgadywania.
-
-## Kontakt / Contact
-
-<p align="left">
-  <a href="https://luna.paganlinux.eu/">Strona projektu</a> ·
-  <a href="https://github.com/LunaDesktop">GitHub</a> ·
-  <a href="https://git.paganlinux.eu/luna.git">Repozytorium</a>
-</p>
-
-<sub>Otwarty na zgłoszenia i pull requesty. Issues z reprodukcją w zagnieżdżonej sesji
-Selene (`SELENE_BACKEND=nested SELENE_INPUT=none`) rozwiązywane są najszybciej.</sub>
-
-<!--
-  Opcjonalnie: karta statystyk GitHuba (usługa zewnętrzna github-readme-stats,
-  renderuje obrazek z publicznych danych — usuń, jeśli nie chcesz zewnętrznych odwołań).
-
 <p align="center">
-  <img height="150" src="https://github-readme-stats.vercel.app/api?username=mijsys&show_icons=true&hide_title=true&theme=transparent" alt="">
-  <img height="150" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mijsys&layout=compact&theme=transparent" alt="">
+  <img src="https://raw.githubusercontent.com/LunaDesktop/monorepo/main/docs/images/luna-desktop.png" width="820" alt="Pulpit Luna">
 </p>
--->
+
+## What is Luna?
+
+A desktop environment in the spirit of GNOME and KDE Plasma — panel, launcher, workspaces,
+notifications, lock screen, login greeter, settings and everyday applications — built
+bottom-up in Rust, with **no GTK, Qt, GObject or glib** anywhere in the stack.
+
+| Layer | GNOME world | KDE world | Luna |
+|---|---|---|---|
+| Toolkit | GTK | Qt | **libLuna** — pure-Rust widgets |
+| Desktop / shell | GNOME Shell | Plasma | **Luna** — panel, launcher, OSD, settings |
+| Wayland compositor | Mutter | KWin | **Selene** — `wayland-server`, no Smithay |
+
+Bilingual by design: every language is one `i18n/<code>.lang` file — built-in **pl**, **en**,
+**de** — and new languages can be added at runtime without recompiling.
+
+## Repositories
+
+**Core**
+
+| Repository | What it is |
+|---|---|
+| [monorepo](https://github.com/LunaDesktop/monorepo) | Working sources: Selene, luna-shell, libLuna and the apps (mirrors live in the separate repos) |
+| [selene](https://github.com/LunaDesktop/selene) | Wayland compositor — DRM/KMS and nested backends, GPU `dmabuf`, XWayland with a built-in WM, IME, clipboard manager |
+| [luna](https://github.com/LunaDesktop/luna) | The shell: panel, launcher, OSD, lock screen and session components |
+| [libLuna](https://github.com/LunaDesktop/libLuna) | The toolkit: 77 GTK4/libadwaita-style widgets, CPU renderer, themes as design tokens |
+| [luna-greeter](https://github.com/LunaDesktop/luna-greeter) | Login screen for greetd, built on libLuna |
+| [branding](https://github.com/LunaDesktop/branding) | Luna-Icons theme, logos and wallpapers |
+
+**Applications**
+
+[files](https://github.com/LunaDesktop/files) — file manager ·
+[store](https://github.com/LunaDesktop/store) — app store (pacman/pag/apt/dnf/emerge/Flatpak) ·
+[settings](https://github.com/LunaDesktop/settings) — settings hub ·
+[media](https://github.com/LunaDesktop/media) — audio/video player ·
+[terminal](https://github.com/LunaDesktop/terminal) — PTY + VT100/xterm, no VTE ·
+[clock](https://github.com/LunaDesktop/clock) — clock, timers, calendar ·
+[eq](https://github.com/LunaDesktop/eq) — audio equalizer components ·
+[luna-demo](https://github.com/LunaDesktop/luna-demo) — widget gallery ·
+[luna-editor-ai-writer](https://github.com/LunaDesktop/luna-editor-ai-writer) — AI plugin for Luna Editor
+
+## Quick start
+
+```sh
+git clone https://github.com/LunaDesktop/monorepo.git luna
+cd luna
+
+./scripts/workspaces.sh build    # everything (no make required)
+./scripts/workspaces.sh test
+./scripts/install.sh             # environment: binaries, session entry, portals
+```
+
+> Trying the compositor without logging out: `SELENE_BACKEND=nested SELENE_INPUT=none selene`.
+> Without `SELENE_INPUT=none` it grabs your physical keyboard and mouse.
+
+## Documentation
+
+- Project site and developer docs: <https://luna.paganlinux.eu/en/docs/> (English) · <https://luna.paganlinux.eu/docs/> (polski)
+- Selene protocol support (live table): [docs/compositor.md](https://github.com/LunaDesktop/monorepo/blob/main/docs/compositor.md)
+- Own git mirror: <https://git.paganlinux.eu/luna.git>
+
+## Licenses
+
+**MPL-2.0** — libLuna, branding, monorepo. **GPL-3.0** — applications, shell and compositor.
+The exact license is always in the repository's `LICENSE` file.
+
+---
+
+## Polski
+
+**Luna** to środowisko pulpitu w duchu GNOME i KDE Plasma — panel, launcher, przestrzenie
+robocze, powiadomienia, ekran blokady, menedżer logowania, ustawienia i aplikacje —
+zbudowane od podstaw w Rust, **bez GTK, Qt, GObject i glib**.
+
+| Warstwa | GNOME | KDE | Luna |
+|---|---|---|---|
+| Toolkit | GTK | Qt | **libLuna** — widgety w czystym Rust |
+| Środowisko | GNOME Shell | Plasma | **Luna** — panel, launcher, OSD, ustawienia |
+| Kompozytor Wayland | Mutter | KWin | **Selene** — `wayland-server`, bez Smithery |
+
+**Repozytoria**
+
+- rdzeń: [monorepo](https://github.com/LunaDesktop/monorepo) (źródła robocze),
+  [selene](https://github.com/LunaDesktop/selene) (kompozytor),
+  [luna](https://github.com/LunaDesktop/luna) (powłoka),
+  [libLuna](https://github.com/LunaDesktop/libLuna) (toolkit),
+  [luna-greeter](https://github.com/LunaDesktop/luna-greeter) (logowanie),
+  [branding](https://github.com/LunaDesktop/branding) (ikony, logo, tapety)
+- aplikacje: [files](https://github.com/LunaDesktop/files),
+  [store](https://github.com/LunaDesktop/store),
+  [settings](https://github.com/LunaDesktop/settings),
+  [media](https://github.com/LunaDesktop/media),
+  [terminal](https://github.com/LunaDesktop/terminal),
+  [clock](https://github.com/LunaDesktop/clock),
+  [eq](https://github.com/LunaDesktop/eq),
+  [luna-demo](https://github.com/LunaDesktop/luna-demo),
+  [luna-editor-ai-writer](https://github.com/LunaDesktop/luna-editor-ai-writer)
+
+**Szybki start**
+
+```sh
+git clone https://github.com/LunaDesktop/monorepo.git luna
+cd luna
+./scripts/workspaces.sh build
+./scripts/workspaces.sh test
+./scripts/install.sh
+```
+
+Kompozytor można uruchomić zagnieżdżony w innej sesji:
+`SELENE_BACKEND=nested SELENE_INPUT=none selene` — bez `SELENE_INPUT=none` przejmie Twoją
+klawiaturę i mysz.
+
+**Dokumentacja:** <https://luna.paganlinux.eu/docs/> (polski) i
+<https://luna.paganlinux.eu/en/docs/> (English). Wsparcie protokołów kompozytora:
+[docs/compositor.md](https://github.com/LunaDesktop/monorepo/blob/main/docs/compositor.md).
+
+**Licencje:** MPL-2.0 (libLuna, branding, monorepo) i GPL-3.0 (aplikacje, powłoka, kompozytor).
