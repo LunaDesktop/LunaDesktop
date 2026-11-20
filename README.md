@@ -31,7 +31,7 @@
 ---
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/LunaDesktop/monorepo/main/docs/images/luna-desktop.png" width="820" alt="Pulpit Luna">
+  <img src="https://git.paganlinux.eu/luna/raw?path=docs/images/luna-desktop.png&branch=main" width="820" alt="Pulpit Luna">
 </p>
 
 ## What is Luna?
